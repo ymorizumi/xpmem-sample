@@ -26,7 +26,7 @@ static void *create_shmem (const char *name, int size)
 {
 	int fd;
 	void *ptr;
-	fd = shm_open(name, O_CREAT | O_EXCL | O_RDWR, S_IRUSR | S_IWUSR);
+	fd = shm_open(name, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
 	ftruncate(fd, size);
 	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 	close(fd);
